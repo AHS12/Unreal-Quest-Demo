@@ -26,6 +26,8 @@ protected:
 	FVector GetHoldLocation() const;
 	UFUNCTION(BlueprintCallable, BluePrintPure)
 	UPhysicsHandleComponent* GetPhysicsComponent() const;
+	UFUNCTION(BlueprintimplementableEvent)
+	void NotifyQuestActor(AActor* Actor);
 
 
 public:
