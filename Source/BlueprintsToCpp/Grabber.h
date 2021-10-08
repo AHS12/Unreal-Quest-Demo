@@ -22,6 +22,8 @@ protected:
 
 	UFUNCTION(BlueprintCallable, BluePrintPure)
 	FVector GetMaxGrabLocation() const;
+	UFUNCTION(BlueprintCallable, BluePrintPure)
+	FVector GetHoldLocation() const;
 
 public:	
 	// Called every frame
