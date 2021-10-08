@@ -4,15 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grabber.generated.h"
 
-
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent), Blueprintable )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent), Blueprintable)
 class BLUEPRINTSTOCPP_API UGrabber : public USceneComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UGrabber();
 
@@ -24,18 +24,19 @@ protected:
 	FVector GetMaxGrabLocation() const;
 	UFUNCTION(BlueprintCallable, BluePrintPure)
 	FVector GetHoldLocation() const;
+	UFUNCTION(BlueprintCallable, BluePrintPure)
+	UPhysicsHandleComponent* GetPhysicsComponent() const;
 
-public:	
+
+public:
 	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
 protected:
-	UPROPERTY(EditAnywhere,BluePrintReadOnly)
+	UPROPERTY(EditAnywhere, BluePrintReadOnly)
 	float MaxGrabDistance = 100.f;
-	UPROPERTY(EditAnywhere,BluePrintReadOnly)
+	UPROPERTY(EditAnywhere, BluePrintReadOnly)
 	float HoldDistance = 100.f;
-	UPROPERTY(EditAnywhere,BluePrintReadOnly)
+	UPROPERTY(EditAnywhere, BluePrintReadOnly)
 	float GrabRadius = 50.f;
-
-		
 };

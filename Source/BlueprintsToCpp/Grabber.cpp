@@ -3,6 +3,7 @@
 
 
 #include "Kismet/KismetMathLibrary.h"
+#include "GameFramework/Actor.h"
 #include "Grabber.h"
 
 
@@ -48,5 +49,11 @@ FVector UGrabber::GetMaxGrabLocation() const
 FVector UGrabber::GetHoldLocation() const
 {
 	return GetComponentLocation() + GetComponentRotation().Vector() * HoldDistance;
+}
+
+
+UPhysicsHandleComponent *UGrabber::GetPhysicsComponent() const
+{
+	return GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
 }
 
