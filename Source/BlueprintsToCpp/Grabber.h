@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/SceneComponent.h"
+#include "Components/PrimitiveComponent.h"
 #include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "Grabber.generated.h"
 
@@ -25,10 +26,11 @@ protected:
 	UFUNCTION(BlueprintCallable, BluePrintPure)
 	FVector GetHoldLocation() const;
 	UFUNCTION(BlueprintCallable, BluePrintPure)
-	UPhysicsHandleComponent* GetPhysicsComponent() const;
-	UFUNCTION(BlueprintimplementableEvent)
-	void NotifyQuestActor(AActor* Actor);
-
+	UPhysicsHandleComponent *GetPhysicsComponent() const;
+	UFUNCTION(BlueprintCallable, BlueprintimplementableEvent)
+	void NotifyQuestActor(AActor *Actor);
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	bool TraceForPhysicsBodies(AActor*& HitActor, UPrimitiveComponent*& HitComponent);
 
 public:
 	// Called every frame
